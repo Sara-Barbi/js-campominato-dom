@@ -1,0 +1,40 @@
+.contenitore{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+#block{
+   width: 700px;
+   height: 700px;
+   display: flex;
+   flex-wrap: wrap;
+}
+.quadrato{
+    width: calc(100%/10);
+    border: 2px solid rgb(214, 138, 208);
+    background-color: rgb(218, 50, 176);
+}
+.quadr{
+    width: calc(100%/9);
+    border: 2px solid rgb(54, 54, 131);
+    background-color: rgb(28, 28, 68);
+    color: white;
+}
+
+.qua{
+    width: calc(100%/7);
+    border: 3px solid rgb(17, 14, 59);
+    background-color: lightcoral;
+}
+.num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.change{
+    background-color: rgb(107, 183, 206);
+    color: blue;
+    cursor:pointer;
+}
+
