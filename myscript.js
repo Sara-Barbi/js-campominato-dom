@@ -36,14 +36,15 @@ go.addEventListener ("click", function(){
     
     //16 bombe in modo casuale con un math random. per non far uscire lo stesso num, ogni volta che estraggo una posiz, la metto in un array. e utilizzare l'if pe
     let bombe = [];
-    
+    let randomBombe = (math.floor(Math.random))
 
     for (let i = 0 ; bombe.length < 16 ;i++){
-        const newPosition= (math.floor(Math.random()*100+1));
-        if(bombe.includes(newPosition[i])){
+        let newPosition= randomBombe ;
+        bombe.push(newPosition);
+        if(bombe.includes(newPosition)){
             bombe.push(newPosition);
         }
-    
+    console.log(bombe);
     }
    
    
