@@ -4,6 +4,7 @@ go.addEventListener ("click", function(){
     let selezione = document.getElementById("myselect").value;
     let block = document.getElementById("block");  //creo una variabile per non riscrivere sempre document.getElem eccc..
     block.innerHTML = "";     //svuoto il div dei blocchi per far si che ogni volta che clicco go non mi sommi i blocchi dei diversi for
+   
     
     if(selezione=="easy"){  //se seleziono easy allora..
         for(let i=1; i<=100 ; i++){
@@ -28,7 +29,7 @@ go.addEventListener ("click", function(){
     
     //potevo scrivere direttamente la function all'interno del for                                                  
     
-    function cellaClick(){
+    function cellaClick(){ 
        const valoreCella = parseInt(this.textContent);     //creo una variabile che mi restituisce il valore dell'elem. cliccato              
        this.classList.add("change");                       //aggiungo a quell'elem la classe change
        
@@ -36,18 +37,28 @@ go.addEventListener ("click", function(){
     
     //16 bombe in modo casuale con un math random. per non far uscire lo stesso num, ogni volta che estraggo una posiz, la metto in un array. e utilizzare l'if pe
     let bombe = [];
-    let randomBombe = (math.floor(Math.random))
-
-    for (let i = 0 ; bombe.length < 16 ;i++){
-        let newPosition= randomBombe ;
-        bombe.push(newPosition);
-        if(bombe.includes(newPosition)){
-            bombe.push(newPosition);
+    
+    for (let i = 0 ; i <= 16 ;i++){
+        let num = document.getElementsByClassName("num");       //richiamo l'elemento che esiste solo dentro alla funzione, dentro alla funzione.
+        
+        num = Math.floor(Math.random()*100+1) ;
+        
+        bombe.push(num);
+        
+        console.log(bombe[i]);     
+       /* 
+       if (bombe.includes(num[i])) {
+            
+            num.classList.add("changered");
+            console.log("ye");
+        }      
+        */
+         }
+              
         }
-    console.log(bombe);
-    }
-   
-   
-   
-
-});
+    
+    
+    
+    
+    
+)

@@ -21,7 +21,9 @@
     background-color: rgb(28, 28, 68);
     color: white;
 }
-
+.changered{
+    background-color: red!important;
+}
 .qua{
     width: calc(100%/7);
     border: 3px solid rgb(17, 14, 59);
