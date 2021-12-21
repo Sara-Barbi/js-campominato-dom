@@ -31,14 +31,22 @@ go.addEventListener ("click", function(){
     function cellaClick(){
        const valoreCella = parseInt(this.textContent);     //creo una variabile che mi restituisce il valore dell'elem. cliccato              
        this.classList.add("change");                       //aggiungo a quell'elem la classe change
-       console.log(valoreCella);
+       
     }
     
     //16 bombe in modo casuale con un math random. per non far uscire lo stesso num, ogni volta che estraggo una posiz, la metto in un array. e utilizzare l'if pe
-    let myArrCells = [];
-    let position = math.Floor(Math.random);
-    while{
-        myArrCells.push(position);
+    let bombe = [];
+    
+
+    for (let i = 0 ; bombe.length < 16 ;i++){
+        const newPosition= (math.floor(Math.random()*100+1));
+        if(bombe.includes(newPosition[i])){
+            bombe.push(newPosition);
+        }
+    
     }
+   
+   
+   
 
 });
