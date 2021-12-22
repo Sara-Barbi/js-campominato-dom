@@ -34,11 +34,68 @@ go.addEventListener ("click", function(){
        this.classList.add("change");                       //aggiungo a quell'elem la classe change
        
     }
-    
+ 
+/*    
+
     //16 bombe in modo casuale con un math random. per non far uscire lo stesso num, ogni volta che estraggo una posiz, la metto in un array. e utilizzare l'if pe
-    let bombe = [];
+    tentativiPossibili = num.length - bombeTotali;
+    let bombeTotali = 16;
+    const posizioniList = generaBombe();
+
+    function generaBombe(){
+        let bombe = [];
+
+
+        //generiamo le bombe
+       while(bombe.lenght < num.length ){
+           let newPosition = generaRandomInt (1, bombeTotali);
+           if(!true){
+               bombe.push(newPosition)
+           }
+           
+       }
+       return bombe;
+       console.log(bombe);
+    }
     
-    for (let i = 0 ; i <= 16 ;i++){
+    function generaElementoArrayDopp(arrayValori, valore){
+        for(let i=0; i<bombe.lenght; i++){
+            if(arrayValori[i]==valore){
+                return true
+            }
+        }
+        return false
+    }
+
+    function generaRandomInt(min, max) {
+        let result = Math.floor(Math.random * (min - max +1))+min;
+        return result
+    }
+     
+    function fineGioco(){
+        const listaCelle = document.querySelectorAll("num");
+        for(let i= 0; i< listaCelle.length; i++){
+            const cella = listaCelle[i]
+            const valorerCella = parseInt(this.querySelector("div").textContent); 
+            if(generaElementoArrayDopp(bombe ,valoreCella) {
+                cella.classList.add("changered")
+            }
+        }
+        console.log("FINE");
+    }
+   
+    function cellaClick(){ 
+        const valorerCella = parseInt(this.querySelector("div").textContent);  
+        if(generaElementoArrayDopp(bombe,valoreCella)){
+            this.classList.add("changered")
+            fineGioco();
+        }else{
+            this.classList.add("change")
+        }                   
+        console.log(valoreCella);
+     }
+
+    for (let i = 0 ; i < 16 ;i++){
         let num = document.getElementsByClassName("num");       //richiamo l'elemento che esiste solo dentro alla funzione, dentro alla funzione.
         
         num = Math.floor(Math.random()*100+1) ;
@@ -46,19 +103,17 @@ go.addEventListener ("click", function(){
         bombe.push(num);
         
         console.log(bombe[i]);     
-       /* 
+       
        if (bombe.includes(num[i])) {
             
             num.classList.add("changered");
             console.log("ye");
         }      
-        */
-         }
-              
-        }
+        */      
+    }
     
     
     
     
     
-)
+);
