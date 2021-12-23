@@ -22,86 +22,78 @@ go.addEventListener ("click", function(){
         }
     }   
     
-    
-    
-    
-    
 
-    
 
-    
-
-    
-    
-    
-    
-    
- 
-  
-
-    //16 bombe in modo casuale con un math random. per non far uscire lo stesso num, ogni volta che estraggo una posiz, la metto in un array. e utilizzare l'if pe
-   
-    
-    
-    
-    let num = document.getElementsByClassName("num");       //richiamo l'elemento che esiste solo dentro alla funzione, dentro alla funzione.
-    for(i=0; i<num.length; i++){                            //parte da 0 e abilita tutti i num perche faccio num.lenght
-        num[i].addEventListener("click", cellaClick);       //inserisco una click,function a ciascun num, quindi scrivo num[i] (Ascoltatore di ogni elemento).
-    }                                                    //richiamo la funzione che ho ceato dopo per ciascun elemento.
-    
-    
-    //potevo scrivere direttamente la function all'interno del for                                                  
-    
-    function cellaClick(){ 
-        const valoreCella = parseInt(this.textContent);     //creo una variabile che mi restituisce il valore dell'elem. cliccato              
-        this.classList.add("change");                       //aggiungo a quell'elem la classe change
-        console.log(valoreCella);
-    }
-
+//inserire 16 bombe diverse dentro un array
 
 
     const item = document.querySelectorAll(".num");
+    
     functionBombs();
     
 
 
     function functionBombs() {  
-        for (let i = 0; i < 16; i++) {
-            let randomBombs = Math.floor(Math.random()*item.length +1);
-            let truetest = bombs.includes(randomBombs);
-                if(truetest==false){
-                    bombs.push(randomBombs);
+        for (let i = 0; i < 16; i++) {                                      //creo un contatore che genera 16 elementi
+           
+            let randomBombs = Math.floor(Math.random()*item.length +1);     // creo una variabile di num randomici, con un massimo di quanti item ci sono per tabella +1, sennò ne creerebbe uno in meno e partendo dallo 0
+           
+           
+            if(bombs.includes(randomBombs)==true){                         //chiedo attraverso un IF : se l'elemento c'è nel mio array puoi pusharlo.
+            
+                i--;                                                        //elimina questo giro
                 
-                    
-                }else{
-                    i--;
-                }
+                
+            }else{                                                         //altrimenti
+                
+               bombs.push(randomBombs);                                    //pusho l'elemento random qualora non sia gia presente nel mio array
+           
+            }
         }
-        console.log(bombs)
-       
-        for(let i = 0; i < item.length; i++) {
+        console.log(bombs)                                                  //mostro gli elementi del mio array
+        
+       //nuova parte ricreata secondo il modello di Osnago, studiamolo
 
-                item[i].addEventListener("click", function() {
+
+        for(let i = 0; i < item.length; i++) {                              //creo un contatore che scorre tutti gli item delle tabelle
+
+                item[i].addEventListener("click", function() {              //abilito il click per tutti gli item delle tabelle
                 
-                    let numtest= parseInt(this.innerHTML);
+                    let valore = parseInt(this.innerHTML);                  // creo una variabile che mi da il numero di ciò che ho cliccato e gli toglie lo style. Dato che il mio array "bombs" include numeri, non items, chiedo il numero di ogni item cliccato
                 
-                    if (bombs.includes(numtest)==true) {
-                    this.style.backgroundColor = "#DC143C";
+                    if (bombs.includes(valore)==true) {                    // creo un IF e gli chiedo se il mio array include quel numero che esce fuori dalla variabile cliccata
+                       
+                        this.classList.add("changered");                    // aggiungo il colore rosso qualora quel numero sia all'inyterno del mio array bombs
                    
-                    cellView();
+                        cellView();
                
-                }else{
-                    this.style.backgroundColor = "#6495ED";
+                }else{                                                     //altrimenti 
+                    this.classList.add("change");                          //aggiungi il colore celeste
                 }
             });
        
+
+
+
+
+
+        // faccio la stessa cosa che ho fatto sopra, soplo che invece che aggiungere la classe all'elemento cliccato, aggiungo a tutti gli elementi dell'array la classe rossa
+        // e a tutti gli elem fuori dell'array la classe celeste, e me li fa vedere tutti perche non sto lavorando con il click (function) dell'oggetto e con il "this" .
+        //quindi automaticamente farà vedere tutti gli elementi dell'array rossi e gli altri celesti
+
             function cellView(){
                 for(let i = 0; i < item.length; i++) {
                     
-                    if (bombs.includes(parseInt(item[i].innerHTML))==true) {
-                        item[i].style.backgroundColor = "#DC143C";
+                    let valoreItem = parseInt(item[i].innerHTML);
+
+                    if (bombs.includes(valoreItem)==true) {
+
+                        item[i].classList.add("changered");
+
                     }else{
-                        item[i].style.backgroundColor = "#6495ED";
+
+                        item[i].classList.add("change");
+
                     }
                     
                 }
