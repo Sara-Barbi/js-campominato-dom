@@ -1,10 +1,10 @@
 let go = document.getElementById("start");
-let bombs = [];
+
 go.addEventListener ("click", function(){
     let selezione = document.getElementById("myselect").value;
     let block = document.getElementById("block");  //creo una variabile per non riscrivere sempre document.getElem eccc..
     block.innerHTML = "";     //svuoto il div dei blocchi per far si che ogni volta che clicco go non mi sommi i blocchi dei diversi for
-   
+    let bombs = [];
     
     if(selezione=="easy"){  //se seleziono easy allora..
         for(let i=1; i<=100 ; i++){
