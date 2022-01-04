@@ -55,17 +55,17 @@ go.addEventListener ("click", function(){
        //nuova parte ricreata secondo il modello di Osnago, studiamolo
 
 
-        for(let i = 0; i < item.length; i++) {                              //creo un contatore che scorre tutti gli item delle tabelle
+        for(let i = 0; i < item.length; i++) {                              //creo un contatore che scorre tutti gli item
 
                 item[i].addEventListener("click", function() {              //abilito il click per tutti gli item delle tabelle
                 
                     let valore = parseInt(this.innerHTML);                  // creo una variabile che mi da il numero di ciò che ho cliccato e gli toglie lo style. Dato che il mio array "bombs" include numeri, non items, chiedo il numero di ogni item cliccato
                 
-                    if (bombs.includes(valore)==true) {                    // creo un IF e gli chiedo se il mio array include quel numero che esce fuori dalla variabile cliccata
+                    if (bombs.includes(valore)==true) {                     // creo un IF e gli chiedo se il mio array include quel numero che esce fuori dalla variabile cliccata
                        
                         this.classList.add("changered");                    // aggiungo il colore rosso qualora quel numero sia all'inyterno del mio array bombs
                    
-                        cellView();
+                        cellView();                                         //fai vedere la funzione che ti mostra che la PARTITA E' FINITA
                
                 }else{                                                     //altrimenti 
                     this.classList.add("change");                          //aggiungi il colore celeste
